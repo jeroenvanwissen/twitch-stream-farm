@@ -59,19 +59,19 @@ Available crops / seed at this moment are:
 
 ## Roadmap / Future features
 
-### Greenhouse updates / Marketplace
+### Greenhouse updates / Marketplace ( https://github.com/jeroenvanwissen/twitch-stream-farm/issues/3 )
 
 I'm curently working out some of the logic for the marketplace in the greenhouse:
 
 * Dynamic pricing of seeds to buy and crops to sell
 * Addition of new crops types
 
-### Fertilizer
+### Fertilizer ( https://github.com/jeroenvanwissen/twitch-stream-farm/issues/4 )
 
 To speed up the growth cycle on a field, you can optionally add fertilizer to a field.
 You'll be able to buy fertilizer in the greenhouse marketplace.
 
-### Revenue sharing
+### Revenue sharing ( https://github.com/jeroenvanwissen/twitch-stream-farm/issues/5 )
 
 As the farming happens randomly, a player can harvest crops that other players sowed.
 To make it a bit more fair, I'll be adding revenue sharing so that each player that did some work during that cycle will get a share of the revenue
@@ -82,4 +82,5 @@ If you find any bugs during gameplay, just report them in chat.. or file an issu
 
 Current open known bugs:
 
-* Unable to sell a specific crop at the greenhouse, only <code>!sell all</code> works
+* Unable to sell a specific crop at the greenhouse, only <code>!sell all</code> works https://github.com/jeroenvanwissen/twitch-stream-farm/issues/1
+* Rounding of coins 2 decimals after comma https://github.com/jeroenvanwissen/twitch-stream-farm/issues/2
