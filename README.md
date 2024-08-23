@@ -20,6 +20,9 @@ Bugs? see below.. also a list of open known bugs...
 
 Use <code>!spawn</code> to join the farm, your player will start randomly moving around.
 
+When you just start on the farm, you don't have anything yet. You can use twitch channel points redeems to 'buy' seeds to start out.
+Or you can just wait and harvest and sell the crops to buy seeds via the commands explained below.
+
 ### Inventory
 <code>!inventory</code>
 
