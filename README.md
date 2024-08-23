@@ -82,5 +82,5 @@ If you find any bugs during gameplay, just report them in chat.. or file an issu
 
 Current open known bugs:
 
-* Unable to sell a specific crop at the greenhouse, only <code>!sell all</code> works https://github.com/jeroenvanwissen/twitch-stream-farm/issues/1
-* Rounding of coins 2 decimals after comma https://github.com/jeroenvanwissen/twitch-stream-farm/issues/2
+~~* Unable to sell a specific crop at the greenhouse, only <code>!sell all</code> works https://github.com/jeroenvanwissen/twitch-stream-farm/issues/1~~
+~~* Rounding of coins 2 decimals after comma https://github.com/jeroenvanwissen/twitch-stream-farm/issues/2~~
