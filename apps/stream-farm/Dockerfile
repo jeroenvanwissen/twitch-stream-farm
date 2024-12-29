@@ -6,7 +6,7 @@ COPY ./package.json ./package-lock.json ./
 RUN npm install
 
 COPY . .
-RUN npm build stream-farm
+RUN npm run build stream-farm
 
 FROM node:lts-alpine
 
