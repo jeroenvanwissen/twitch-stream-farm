@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["node", "tmi.js"],
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "@libs/player": ["libs/player/src"],
+      "@libs/player/*": ["libs/player/src/*"],
+      "@libs/field": ["libs/field/src"],
+      "@libs/field/*": ["libs/field/src/*"],
+      "@libs/map": ["libs/map/src"],
+      "@libs/map/*": ["libs/map/src/*"],
+      "@libs/marketplace": ["libs/marketplace/src"],
+      "@libs/marketplace/*": ["libs/marketplace/src/*"],
+      "@libs/pathfinding": ["libs/pathfinding/src"],
+      "@libs/pathfinding/*": ["libs/pathfinding/src/*"],
+      "@libs/twitch": ["libs/twitch/src"],
+      "@libs/twitch/*": ["libs/twitch/src/*"],
+      "@libs/item": ["libs/item/src"],
+      "@libs/item/*": ["libs/item/src/*"],
+      "@libs/database": ["libs/database/src"],
+      "@libs/database/*": ["libs/database/src/*"]
+    }
+  }
+}

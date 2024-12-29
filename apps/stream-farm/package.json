@@ -1,0 +1,11 @@
+{
+  "name": "@stream-farm-monorepo/steam-farm",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start:prod": "node main"
+  }
+}

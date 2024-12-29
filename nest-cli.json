@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/stream-farm/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/stream-farm/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/stream-farm",
+  "projects": {
+    "stream-farm": {
+      "type": "application",
+      "root": "apps/stream-farm",
+      "entryFile": "main",
+      "sourceRoot": "apps/stream-farm/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/stream-farm/tsconfig.app.json"
+      }
+    },
+    "player": {
+      "type": "library",
+      "root": "libs/player",
+      "entryFile": "index",
+      "sourceRoot": "libs/player/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/player/tsconfig.lib.json"
+      }
+    },
+    "field": {
+      "type": "library",
+      "root": "libs/field",
+      "entryFile": "index",
+      "sourceRoot": "libs/field/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/field/tsconfig.lib.json"
+      }
+    },
+    "map": {
+      "type": "library",
+      "root": "libs/map",
+      "entryFile": "index",
+      "sourceRoot": "libs/map/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/map/tsconfig.lib.json"
+      }
+    },
+    "pathfinding": {
+      "type": "library",
+      "root": "libs/pathfinding",
+      "entryFile": "index",
+      "sourceRoot": "libs/pathfinding/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/pathfinding/tsconfig.lib.json"
+      }
+    },
+    "twitch": {
+      "type": "library",
+      "root": "libs/twitch",
+      "entryFile": "index",
+      "sourceRoot": "libs/twitch/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/twitch/tsconfig.lib.json"
+      }
+    },
+    "item": {
+      "type": "library",
+      "root": "libs/item",
+      "entryFile": "index",
+      "sourceRoot": "libs/item/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/item/tsconfig.lib.json"
+      }
+    },
+    "database": {
+      "type": "library",
+      "root": "libs/database",
+      "entryFile": "index",
+      "sourceRoot": "libs/database/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/database/tsconfig.lib.json"
+      }
+    }
+  }
+}
