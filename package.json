@@ -1,10 +1,10 @@
 {
-  "name": "stream-farm-monorepo",
-  "version": "0.0.1",
+  "name": "twitch-stream-farm",
+  "version": "0.1.0",
   "description": "",
-  "author": "",
+  "author": "Jeroen van Wissen <jeroen.van.wissen@gmail.com> (https://jeroenvanwissen.com)",
   "private": true,
-  "license": "",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",

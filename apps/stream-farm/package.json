@@ -1,8 +1,8 @@
 {
-  "name": "@stream-farm-monorepo/steam-farm",
-  "version": "0.0.1",
+  "name": "@twitch-stream-farm/steam-farm",
+  "version": "0.1.0",
   "description": "",
-  "author": "",
+  "author": "Jeroen van Wissen <jeroen.van.wissen@gmail.com> (https://jeroenvanwissen.com)",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
