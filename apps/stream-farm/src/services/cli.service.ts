@@ -41,10 +41,12 @@ export class CliService implements OnModuleInit {
       });
 
     this.program
-      .command('map <name> <file>')
-      .description('Process map')
-      .action(async (name: string, file: any) => {
-        await this.mapService.processMap(name, file);        
+      .command('sync <type> <name> <file>')
+      .description('Sync data from a file to the database')
+      .action(async (type: string, name: string, file: any) => {
+        if (type === 'map') {
+          await this.mapService.processMap(name, file);
+        }
         process.exit(0);
       });
 
