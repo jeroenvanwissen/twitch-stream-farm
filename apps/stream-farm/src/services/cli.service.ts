@@ -45,7 +45,7 @@ export class CliService implements OnModuleInit {
       .description('Sync data from a file to the database')
       .action(async (type: string, args: unknown) => {
         let name: string;
-        let file: fs.PathOrFileDescriptor
+        let file: fs.PathOrFileDescriptor;
 
         if (type === 'map') {
           [name, file] = args as [string, fs.PathOrFileDescriptor];
@@ -55,6 +55,13 @@ export class CliService implements OnModuleInit {
         if (type === 'fields') {
           [file] = args as [fs.PathOrFileDescriptor];
           await this.fieldService.updateFieldsFromJson(file);
+        }
+
+        if (type === 'items') {
+          [file] = args as [fs.PathOrFileDescriptor];
+          const fileContent = fs.readFileSync(file, 'utf-8');
+          const jsonData = JSON.parse(fileContent);
+          await this.itemService.addItems(jsonData);
         }
         process.exit(0);
       });
@@ -95,24 +102,6 @@ export class CliService implements OnModuleInit {
       .description('Reset all fields')
       .action(async () => {
         await this.fieldService.resetFields();
-        process.exit(0);
-      });
-
-    this.program
-      .command('insert-items <jsonfile>')
-      .description('Inserts a new item in the database from a JSON file')
-      .action(async (jsonfile: string) => {
-        console.log(jsonfile);
-        try {
-          console.log('test');
-          const filePath = path.resolve(jsonfile);
-          const fileContent = fs.readFileSync(filePath, 'utf-8');
-          const jsonData = JSON.parse(fileContent);
-          await this.itemService.addItems(jsonData);
-        } catch (error) {
-          console.error(error);
-          process.exit(1);
-        }
         process.exit(0);
       });
 
