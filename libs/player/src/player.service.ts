@@ -25,6 +25,10 @@ export class PlayerService {
    */
   async getAllPlayers(): Promise<Player[]> {
     return this.playerRepository.find({
+      where: {
+        isActive: true,
+        isDisabled: false,
+      },
       relations: ['inventory', 'inventory.item'],
     });
   }
