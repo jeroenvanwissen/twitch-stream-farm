@@ -1,0 +1,262 @@
+[
+  {
+    "fieldnumber": 1,
+    "type": "SOIL",
+    "x": 2,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 2,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 2,
+    "type": "SOIL",
+    "x": 2,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 2,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 3,
+    "type": "SOIL",
+    "x": 4,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 4,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 4,
+    "type": "SOIL",
+    "x": 4,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 4,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 5,
+    "type": "SOIL",
+    "x": 6,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 6,
+    "signY": 2
+  }, 
+  {
+    "fieldnumber": 6,
+    "type": "SOIL",
+    "x": 6,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 6,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 7,
+    "type": "SOIL",
+    "x": 8,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 8,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 8,
+    "type": "SOIL",
+    "x": 8,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 8,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 9,
+    "type": "SOIL",
+    "x": 11,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 11,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 10,
+    "type": "SOIL",
+    "x": 11,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 11,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 11,
+    "type": "SOIL",
+    "x": 13,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 13,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 12,
+    "type": "SOIL",
+    "x": 13,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 12,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 13,
+    "type": "SOIL",
+    "x": 15,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 15,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 14,
+    "type": "SOIL",
+    "x": 15,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 15,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 15,
+    "type": "SOIL",
+    "x": 17,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 17,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 16,
+    "type": "SOIL",
+    "x": 17,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 17,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 17,
+    "type": "SOIL",
+    "x": 24,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 24,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 18,
+    "type": "SOIL",
+    "x": 24,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 24,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 19,
+    "type": "SOIL",
+    "x": 26,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 26,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 20,
+    "type": "SOIL",
+    "x": 26,
+    "y": 4,
+    "width": 1,
+    "height": 1,
+    "signX": 26,
+    "signY": 4
+  },
+  {
+    "fieldnumber": 21,
+    "type": "SOIL",
+    "x": 33,
+    "y": 5,
+    "width": 1,
+    "height": 1,
+    "signX": 33,
+    "signY": 5
+  },
+  {
+    "fieldnumber": 22,
+    "type": "SOIL",
+    "x": 35,
+    "y": 5,
+    "width": 1,
+    "height": 1,
+    "signX": 35,
+    "signY": 5
+  },
+  {
+    "fieldnumber": 23,
+    "type": "SOIL",
+    "x": 43,
+    "y": 5,
+    "width": 1,
+    "height": 1,
+    "signX": 43,
+    "signY": 5
+  },
+  {
+    "fieldnumber": 24,
+    "type": "SOIL",
+    "x": 45,
+    "y": 5,
+    "width": 1,
+    "height": 1,
+    "signX": 45,
+    "signY": 5
+  },
+  {
+    "fieldnumber": 25,
+    "type": "SOIL",
+    "x": 50,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 50,
+    "signY": 2
+  },
+  {
+    "fieldnumber": 26,
+    "type": "SOIL",
+    "x": 52,
+    "y": 2,
+    "width": 1,
+    "height": 1,
+    "signX": 52,
+    "signY": 2
+  }
+]

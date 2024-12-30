@@ -1,3 +1,4 @@
+import { Item } from '@libs/item/entities/item.entity';
 import {
   Column,
   Entity,
@@ -19,7 +20,7 @@ export class MarketplaceLogbook {
     onUpdate: 'NO ACTION',
   })
   @JoinColumn([{ name: 'itemId', referencedColumnName: 'id' }])
-  item: any;
+  item: Item;
 
   @Column('integer', { name: 'quantity' })
   quantity: number;

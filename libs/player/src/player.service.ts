@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { Player } from './entities/player.entity';
-import { PlayerInventory } from './entities/player-inventory.entity'
-import { Item, ItemService } from '@libs/item'
+import { PlayerInventory } from './entities/player-inventory.entity';
+import { ItemService } from '@libs/item';
 
 @Injectable()
 export class PlayerService {
@@ -58,6 +58,29 @@ export class PlayerService {
         username,
       },
       relations: ['inventory', 'inventory.item'],
+    });
+  }
+
+  /**
+   * Creates a new player.
+   *
+   * @param {string} username - The username of the new player.
+   * @returns {Promise<Player>} A promise that resolves to the newly created player.
+   */
+  async createPlayer(username: string, x: number, y: number): Promise<Player> {
+    return this.playerRepository.save({
+      username,
+      coins: 0,
+      xp: 0,
+      level: 1,
+      isActive: true,
+      isDisabled: false,
+      isMoving: false,
+      targetReached: true,
+      locationX: x,
+      locationY: y,
+      updatedAt: new Date(),
+      createdAt: new Date(),
     });
   }
 
@@ -124,21 +147,24 @@ export class PlayerService {
       .getRawOne();
   }
 
-
-  // TODO: Refactor this part to allow player: Player instead of username....?  
+  // TODO: Refactor this part to allow player: Player instead of username....?
   async addItemToInventory(username: string, itemname: string, amount: number) {
-    const player = await this.getPlayerByUsername(username);
+    const player: Player = await this.getPlayerByUsername(username);
 
     if (!player) {
       return null;
     }
 
     if (player.inventory?.length > 0) {
-      let itemEntry = player.inventory.find(entry => entry.item.name === itemname && entry.item.type === 'CROPS');
+      const itemEntry = player.inventory.find(
+        (entry: PlayerInventory) =>
+          entry.item.name === itemname && entry.item.type === 'CROPS',
+      );
 
       if (itemEntry) {
         itemEntry.quantity = Number(itemEntry.quantity) + Number(amount);
         const result = await this.playerInventoryRepository.save(itemEntry);
+        console.log('Updated item in inventory.... ', result);
       } else {
         await this.findItemAndAddToInventory(player, itemname, amount);
       }
@@ -149,7 +175,11 @@ export class PlayerService {
     console.log('Added items to inventory....');
   }
 
-  private async findItemAndAddToInventory(player: Player, itemname: string, amount: number): Promise<PlayerInventory | null> {
+  private async findItemAndAddToInventory(
+    player: Player,
+    itemname: string,
+    amount: number,
+  ): Promise<PlayerInventory | null> {
     const item = await this.itemService.getItemByNameAndType(itemname, 'CROPS');
     if (!item) {
       return null;
@@ -159,7 +189,7 @@ export class PlayerService {
       quantity: Number(amount),
       harvestedCycles: null,
       item,
-      player
+      player,
     });
   }
 }

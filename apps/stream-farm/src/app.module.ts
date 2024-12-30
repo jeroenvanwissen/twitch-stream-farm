@@ -34,8 +34,9 @@ import { TwitchModule } from '@libs/twitch';
       provide: Redis,
       useFactory: () => {
         return new Redis(
-          `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}` ||
-            'redis://redis:6379',
+          process.env.REDIS_HOST && process.env.REDIS_PORT
+            ? `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`
+            : 'redis://redis:6379',
         );
       },
     },

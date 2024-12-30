@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Player } from './player.entity';
+import { Item } from '@libs/item/entities/item.entity';
 
 @Entity('PlayerInventory', { schema: 'public' })
 export class PlayerInventory {
@@ -26,7 +27,7 @@ export class PlayerInventory {
     onUpdate: 'NO ACTION',
   })
   @JoinColumn([{ name: 'itemId', referencedColumnName: 'id' }])
-  item: any;
+  item: Item;
 
   @ManyToOne(() => Player, (player) => player.inventory, {
     onDelete: 'NO ACTION',

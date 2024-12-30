@@ -133,7 +133,7 @@ export class EventsService implements OnModuleInit {
 
               this.logger.log(
                 `Job ${job.id}: Completed movement for ${username} to ${job.data.x},${job.data.y}`,
-              )
+              );
 
               // TODO: Add logic to handle player interactions with the target location
               // Field processing, item collection, etc.
@@ -170,7 +170,10 @@ export class EventsService implements OnModuleInit {
                   this.events$.next({
                     type: 'fieldUpdate',
                     field,
-                    playerAction: { username: player.username, action: 'planting' },
+                    playerAction: {
+                      username: player.username,
+                      action: 'planting',
+                    },
                   });
 
                   // Add a little delay before we do the next action...
@@ -215,7 +218,11 @@ export class EventsService implements OnModuleInit {
 
                 // We always have 9 items of crop on a field right now, this might change in
                 // the future where we might add bigger fields....
-                await this.playerService.addItemToInventory(player.username, cropName, 9);
+                await this.playerService.addItemToInventory(
+                  player.username,
+                  cropName,
+                  9,
+                );
 
                 // Add a little delay before we do the next action...
                 await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -230,7 +237,6 @@ export class EventsService implements OnModuleInit {
               });
             },
           );
-
         } catch (error) {
           this.logger.error(
             `Error processing movement for ${username}:`,
@@ -255,8 +261,9 @@ export class EventsService implements OnModuleInit {
       {
         connection: {
           url:
-            `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}` ||
-            'redis://redis:6379',
+            process.env.REDIS_HOST && process.env.REDIS_PORT
+              ? `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`
+              : 'redis://redis:6379',
         },
         concurrency: 5, // Process up to 5 jobs simultaneously
         removeOnComplete: {
@@ -268,9 +275,9 @@ export class EventsService implements OnModuleInit {
       },
     );
 
-//    worker.on('completed', (job, result) => {
-//      this.logger.log(`Job ${job.id}: completed successfully ${result}`);
-//    });
+    //    worker.on('completed', (job, result) => {
+    //      this.logger.log(`Job ${job.id}: completed successfully ${result}`);
+    //    });
 
     worker.on('failed', (job, err) => {
       // Only keep the job in the queue if it failed due to player moving

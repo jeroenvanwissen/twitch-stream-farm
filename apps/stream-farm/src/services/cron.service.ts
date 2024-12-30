@@ -3,7 +3,7 @@ import { Cron, CronExpression } from '@nestjs/schedule';
 import { EventsService } from './events.service';
 import { FieldService } from '@libs/field';
 import { PathfindingService } from '@libs/pathfinding';
-import { Player, PlayerService } from '@libs/player';
+import { PlayerService } from '@libs/player';
 import { playerMovementQueue } from '@libs/player';
 
 @Injectable()

@@ -10,6 +10,7 @@ import {
   ITiledMapLayer,
   ITiledMapTileset,
   ITiledMapTileLayer,
+  ITiledMapTile,
 } from '@workadventure/tiled-map-type-guard';
 
 type TileProperty = {
@@ -42,7 +43,7 @@ export class MapService {
    * @param {string} name - The name of the map to retrieve.
    * @returns {Promise<Map>} A promise that resolves to the map with the specified name.
    */
-  async getMapByName(name: string): Promise<any> {
+  async getMapByName(name: string): Promise<Map> {
     return this.mapRepository.findOne({
       where: {
         name: name,
@@ -50,7 +51,7 @@ export class MapService {
     });
   }
 
-  async processMap(name: string, file: any): Promise<void> {
+  async processMap(name: string, file: fs.PathOrFileDescriptor): Promise<void> {
     const fileContent = fs.readFileSync(file, 'utf-8');
     const mapData: ITiledMap = JSON.parse(fileContent);
     const grid = this.generateGrid(mapData);
@@ -135,14 +136,14 @@ export class MapService {
     y: number,
     layer: ITiledMapTileLayer,
     tilesets: ITiledMapTileset[],
-  ): any {
+  ): { properties: { collides?: boolean; walkable?: boolean } } {
     const index: number = y * layer.width + x;
     const globalTileId: number = layer.data[index] as number;
 
     if (globalTileId && globalTileId !== 0) {
       for (const tileset of tilesets as TiledTileset[]) {
         const firstGid = tileset.firstgid;
-        const tiles: any = tileset.tiles;
+        const tiles: ITiledMapTile[] = tileset.tiles as ITiledMapTile[];
 
         if (globalTileId >= firstGid && tiles) {
           const tileId = globalTileId - firstGid;

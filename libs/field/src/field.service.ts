@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -32,6 +33,39 @@ export class FieldService {
       },
       relations: ['fieldState'],
     });
+  }
+
+  async updateFieldsFromJson(file: fs.PathOrFileDescriptor): Promise<void> {
+    const fileContent = fs.readFileSync(file, 'utf-8');
+    const fields = JSON.parse(fileContent);
+
+    for (const field of fields) {
+      const fieldStateEntity = await this.fieldStateRepository.save({
+        cycleStartTime: null,
+        hasSummonedPlayerForSowing: false,
+        hasSummonedPlayerForHarvesting: false,
+        hasSummonedPlayerForWatering: false,
+        isDry: true,
+        isFertilized: false,
+        isReadyForHarvest: false,
+        isWatered: false,
+        stageIndex: null,
+        stageStartTime: null,
+        crop: null,
+      });
+
+      await this.fieldRepository.save({
+        fieldnumber: field.fieldnumber,
+        type: field.type,
+        locationX: field.x,
+        locationY: field.y,
+        width: field.width,
+        height: field.height,
+        signX: field.signX,
+        signY: field.signY,
+        fieldStateId: fieldStateEntity.id,
+      });
+    }
   }
 
   async getRandomEmptyField(): Promise<Field | null> {
@@ -128,8 +162,8 @@ export class FieldService {
         isWatered: false,
         stageIndex: null,
         stageStartTime: null,
-        crop: null
-      }
-  );
+        crop: null,
+      },
+    );
   }
 }

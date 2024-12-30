@@ -15,6 +15,4 @@ import { ItemModule } from '@libs/item';
   providers: [PlayerService],
   exports: [PlayerService, TypeOrmModule],
 })
-
 export class PlayerModule {}
-

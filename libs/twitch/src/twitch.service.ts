@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
 import * as tmi from 'tmi.js';
-import { playerMovementQueue } from '@libs/player';
+import { PlayerService, playerMovementQueue } from '@libs/player';
 import { FieldService } from '@libs/field';
 
 @Injectable()
@@ -8,7 +8,10 @@ export class TwitchService implements OnModuleInit {
   private readonly logger = new Logger(TwitchService.name);
   private client: tmi.Client;
 
-  constructor(private readonly fieldService: FieldService) {
+  constructor(
+    private readonly fieldService: FieldService,
+    private readonly playerService: PlayerService,
+  ) {
     this.client = new tmi.Client({
       channels: [process.env.TWITCH_CHANNEL],
       identity: {
@@ -23,6 +26,19 @@ export class TwitchService implements OnModuleInit {
       await this.client.connect();
       this.logger.log('Connected to Twitch chat');
       this.setupChatCommands();
+
+      // When player joins, update player status to active
+      this.client.on('join', async (_channel, username, self) => {
+        if (self) return;
+        await this.playerService.updatePlayer(username, { isActive: true });
+      });
+
+      // When player leaves, update player status to inactive
+      this.client.on('part', async (_channel, username, self) => {
+        if (self) return;
+        await this.playerService.updatePlayer(username, { isActive: false });
+      });
+
     } catch (error) {
       this.logger.error('Failed to connect to Twitch chat:', error);
     }
@@ -34,6 +50,18 @@ export class TwitchService implements OnModuleInit {
 
       const username = tags.username;
       if (!username) return;
+
+      if (message.startsWith('!spawn')) {
+        // Check if player exists in database, if not.. add player
+        const player = await this.playerService.getPlayerByUsername(username);
+        if (!player) {
+          await this.playerService.createPlayer(username, 37, 4);
+        } else {
+          await this.playerService.updatePlayer(username, {
+            isActive: true,
+          });
+        }
+      }
 
       // Command format: !move shop
       // Should move the player to the shop and should stay there for 3 minutes

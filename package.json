@@ -1,6 +1,6 @@
 {
   "name": "twitch-stream-farm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "author": "Jeroen van Wissen <jeroen.van.wissen@gmail.com> (https://jeroenvanwissen.com)",
   "private": true,
@@ -21,7 +21,8 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "typeorm:generate-entities": "typeorm-ts-node-commonjs -d typeorm.config.ts entity:create -o libs/database/src/entities",
     "cli": "ts-node -r tsconfig-paths/register cli.ts",
-    "docker:dev": "docker-compose -f docker-compose.dev.yml up"
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker": "docker-compose -f docker-compose.yml up"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.15",
@@ -33,7 +34,7 @@
     "@workadventure/tiled-map-type-guard": "^2.1.2",
     "bullmq": "^5.34.5",
     "cli-table3": "^0.6.5",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "dotenv": "^16.4.7",
     "easystarjs": "^0.4.4",
     "pg": "^8.13.1",
@@ -43,6 +44,7 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@nestjs/cli": "^10.4.9",
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.15",
@@ -50,8 +52,8 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
     "@types/supertest": "^6.0.2",
-    "@typescript-eslint/eslint-plugin": "^8.18.2",
-    "@typescript-eslint/parser": "^8.18.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -63,7 +65,8 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0"
   },
   "jest": {
     "moduleFileExtensions": [

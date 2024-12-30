@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MarketplaceItem } from './entities/marketplace-item.entity';
 import { MarketplaceLogbook } from './entities/marketplace-logbook.entity';
-import { In, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Item, ItemService } from '@libs/item';
 import { Player, PlayerInventory } from '@libs/player';
 
@@ -61,6 +61,12 @@ export class MarketplaceService {
     console.log(playerInventory);
     if (!playerInventory) {
       throw new Error('Player does not have item in inventory');
+    }
+
+    // If we didn't define a quantity, sell all items in inventory
+    // If the quantity is higher than the player's inventory, sell all items
+    if (quantity === undefined || quantity > playerInventory.quantity) {
+      quantity = playerInventory.quantity;
     }
 
     // Check in the marketplace if the item exists

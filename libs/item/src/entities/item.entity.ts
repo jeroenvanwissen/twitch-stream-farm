@@ -8,6 +8,8 @@ import {
 import { ItemGrowthStage } from './item-growthstage.entity';
 import { FieldState } from '@libs/field/entities/field-state.entity';
 import { PlayerInventory } from '@libs/player/entities/player-inventory.entity';
+import { MarketplaceItem } from '@libs/marketplace/entities/marketplace-item.entity';
+import { MarketplaceLogbook } from '@libs/marketplace/entities/marketplace-logbook.entity';
 
 @Index('Item_name_type_key', ['name', 'type'], { unique: true })
 @Entity('Item', { schema: 'public' })
@@ -40,13 +42,13 @@ export class Item {
     onDelete: 'NO ACTION',
     onUpdate: 'NO ACTION',
   })
-  marketplaceItem: any[];
+  marketplaceItem: MarketplaceItem[];
 
   @OneToMany('MarketplaceLogbook', 'item', {
     onDelete: 'NO ACTION',
     onUpdate: 'NO ACTION',
   })
-  marketplaceLogbooks: any[];
+  marketplaceLogbooks: MarketplaceLogbook[];
 
   @OneToMany(() => FieldState, (fieldState) => fieldState.crop, {
     onDelete: 'NO ACTION',

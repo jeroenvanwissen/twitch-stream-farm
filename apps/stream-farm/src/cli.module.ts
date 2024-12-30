@@ -3,7 +3,6 @@ import { CliService } from './services/cli.service';
 import { PlayerModule } from '@libs/player';
 import { FieldModule } from '@libs/field';
 import { DatabaseModule } from '@libs/database';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemModule } from '@libs/item';
 import { MarketplaceModule } from '@libs/marketplace';
 import { MapModule } from '@libs/map'; 

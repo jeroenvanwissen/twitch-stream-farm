@@ -41,11 +41,20 @@ export class CliService implements OnModuleInit {
       });
 
     this.program
-      .command('sync <type> <name> <file>')
+      .command('sync <type> [args...]')
       .description('Sync data from a file to the database')
-      .action(async (type: string, name: string, file: any) => {
+      .action(async (type: string, args: unknown) => {
+        let name: string;
+        let file: fs.PathOrFileDescriptor
+
         if (type === 'map') {
+          [name, file] = args as [string, fs.PathOrFileDescriptor];
           await this.mapService.processMap(name, file);
+        }
+
+        if (type === 'fields') {
+          [file] = args as [fs.PathOrFileDescriptor];
+          await this.fieldService.updateFieldsFromJson(file);
         }
         process.exit(0);
       });
@@ -183,12 +192,12 @@ export class CliService implements OnModuleInit {
         process.exit(0);
       });
 
-    this.program
-      .command('buy <username> <itemname> <amount>')
-      .description('Buy item')
-      .action(async (username: string, itemname: string, amount: number) => {
-        process.exit(0);
-      });
+    // this.program
+    //   .command('buy <username> <itemname> <amount>')
+    //   .description('Buy item')
+    //   .action(async (username: string, itemname: string, amount: number) => {
+    //     process.exit(0);
+    //   });
 
     this.program
       .command('move <username> <target> [number]')
