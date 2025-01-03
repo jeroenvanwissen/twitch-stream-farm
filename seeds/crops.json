@@ -7,27 +7,27 @@
       {
         "stageIndex": 0,
         "stageTileId": 1,
-        "duration": 5
+        "duration": 60
       },
       {
         "stageIndex": 1,
         "stageTileId": 64,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 2,
         "stageTileId": 65,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 3,
         "stageTileId": 66,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 4,
         "stageTileId": 63,
-        "duration": 10
+        "duration": 2
       }
     ]
   },
@@ -39,32 +39,32 @@
       {
         "stageIndex": 0,
         "stageTileId": 1,
-        "duration": 5
+        "duration": 60
       },
       {
         "stageIndex": 1,
         "stageTileId": 784,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 2,
         "stageTileId": 785,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 3,
         "stageTileId": 786,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 4,
         "stageTileId": 787,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 5,
         "stageTileId": 783,
-        "duration": 10
+        "duration": 2
       }
     ]
   },
@@ -76,37 +76,37 @@
       {
         "stageIndex": 0,
         "stageTileId": 1,
-        "duration": 5
+        "duration": 60
       },
       {
         "stageIndex": 1,
         "stageTileId": 146,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 2,
         "stageTileId": 147,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 3,
         "stageTileId": 148,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 4,
         "stageTileId": 149,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 5,
         "stageTileId": 150,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 6,
         "stageTileId": 145,
-        "duration": 10
+        "duration": 2
       }
     ]
   },
@@ -118,37 +118,37 @@
       {
         "stageIndex": 0,
         "stageTileId": 1,
-        "duration": 5
+        "duration": 60
       },
       {
         "stageIndex": 1,
         "stageTileId": 768,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 2,
         "stageTileId": 769,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 3,
         "stageTileId": 770,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 4,
         "stageTileId": 771,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 5,
         "stageTileId": 772,
-        "duration": 10
+        "duration": 120
       },
       {
         "stageIndex": 6,
         "stageTileId": 767,
-        "duration": 10
+        "duration": 2
       }
     ]
   }

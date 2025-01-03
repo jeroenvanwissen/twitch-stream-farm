@@ -216,12 +216,13 @@ export class EventsService implements OnModuleInit {
                   },
                 });
 
-                // We always have 9 items of crop on a field right now, this might change in
+                // We always have 3 items of crop on a field right now, this might change in
                 // the future where we might add bigger fields....
+                // TODO: Change this to a config setting
                 await this.playerService.addItemToInventory(
                   player.username,
                   cropName,
-                  9,
+                  3,
                 );
 
                 // Add a little delay before we do the next action...

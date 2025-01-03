@@ -7,7 +7,6 @@ import { MarketplaceService } from '@libs/marketplace';
 
 import Table from 'cli-table3';
 import * as fs from 'fs';
-import * as path from 'path';
 import { MapService } from '@libs/map';
 
 @Injectable()
