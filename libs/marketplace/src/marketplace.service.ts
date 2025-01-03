@@ -5,6 +5,7 @@ import { MarketplaceLogbook } from './entities/marketplace-logbook.entity';
 import { Repository } from 'typeorm';
 import { Item, ItemService } from '@libs/item';
 import { Player, PlayerInventory } from '@libs/player';
+import { ITiledMapWangColor } from '@workadventure/tiled-map-type-guard';
 
 @Injectable()
 export class MarketplaceService {
@@ -41,14 +42,31 @@ export class MarketplaceService {
     });
   }
 
+  async buyItem(
+    username: string,
+    itemname: string,
+    quantity: number,
+  ): Promise<{item: string, quantity: number, totalCosts: number}> {
+    const totalCosts = 0;
+
+    //TODO: Insert buying seed logic here
+
+    return {
+      item: `seed - ${itemname}`,
+      quantity,
+      totalCosts,
+    }   
+  }
+
   async sellItem(
     username: string,
     itemname: string,
     quantity?: number,
-  ): Promise<void> {
+  ): Promise<{item: string, quantity: number, totalRevenue: number}> {
     const playerInventory = await this.playerInventoryRepository.findOne({
       where: {
         item: {
+          type: 'CROPS',
           name: itemname,
         },
         player: {
@@ -58,7 +76,6 @@ export class MarketplaceService {
       relations: ['item', 'player'],
     });
 
-    console.log(playerInventory);
     if (!playerInventory) {
       throw new Error('Player does not have item in inventory');
     }
@@ -75,8 +92,6 @@ export class MarketplaceService {
         item: playerInventory.item,
       },
     });
-
-    console.log(marketplaceItem);
 
     if (!marketplaceItem) {
       throw new Error("Item can't be sold to the marketplace");
@@ -122,7 +137,7 @@ export class MarketplaceService {
     }
 
     // Calculate the quantity to add
-    const quantityToAdd = Math.floor(playerInventory.quantity / 18);
+    const quantityToAdd = Math.floor(playerInventory.quantity / 6);
     const seedPrice = itemPrice * 0.5;
 
     // Check if the item exists in the marketplace
@@ -145,26 +160,10 @@ export class MarketplaceService {
       });
     }
 
-    // calculate the price and remove item from player inventory.
-    // add X amount of currency to the player's inventory
-
-    // const marketplaceItem = await this.marketplaceItemRepzository.findOne({
-    //   where: {
-    //     item,
-    //   },
-    // });
-
-    // if (marketplaceItem.quantity < quantity) {
-    //   throw new Error('Not enough items in stock');
-    // }
-
-    // await this.marketplaceItemRepository.update(marketplaceItem.id, {
-    //   quantity: marketplaceItem.quantity - quantity,
-    // });
-
-    // return await this.marketplaceLogbookRepository.save({
-    //   item,
-    //   quantity,
-    // });
+    return {
+      item: `crops - ${itemname}`,
+      quantity,
+      totalRevenue,
+    }
   }
 }
